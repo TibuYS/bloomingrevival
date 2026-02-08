@@ -4,24 +4,29 @@ public enum RagdollState
 {
     Animated,
     Ragdoll,
-    Carried
+    Carried,
+    Dragged
 }
+
 
 public class RagdollController : MonoBehaviour
 {
-
-    [Header("References")]
     public Animation LegacyAnimation;
     public Rigidbody RootRigidbody;
 
-    [Header("Debug")]
     public RagdollState CurrentState = RagdollState.Animated;
 
-    [Header("Drop Tuning")]
     public float DropForwardOffset = 0.6f;
     public float DropUpOffset = 0.2f;
     public float DropImpulse = 1.5f;
     public float IgnorePlayerCollisionTime = 0.4f;
+
+    public float DragSpring = 900f;
+    public float DragDamper = 120f;
+
+    public ConfigurableJoint dragJoint;
+    Rigidbody draggedBody;
+    public bool isDragging;
 
     Rigidbody[] bodies;
     Collider[] colliders;
@@ -52,7 +57,60 @@ public class RagdollController : MonoBehaviour
             r.localBounds = bounds;
         }
 
+        dragJoint = transform.Find("PelvisRoot/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightArmRoll/RightForeArm/RightForeArmRoll/RightHand").gameObject.GetComponent<ConfigurableJoint>();
     }
+
+    public void StartDragging(Rigidbody footBody, Transform dragPoint)
+    {
+        if (!initialized) return;
+        if (CurrentState != RagdollState.Ragdoll) return;
+
+        CurrentState = RagdollState.Dragged;
+        isDragging = true;
+
+        draggedBody = footBody;
+
+        dragJoint = footBody.gameObject.AddComponent<ConfigurableJoint>();
+
+        Rigidbody playerRB = dragPoint.GetComponentInParent<Rigidbody>();
+
+        dragJoint.connectedBody = playerRB;
+
+        dragJoint.autoConfigureConnectedAnchor = false;
+        dragJoint.connectedAnchor = playerRB.transform.InverseTransformPoint(dragPoint.position);
+
+        dragJoint.angularXMotion = ConfigurableJointMotion.Locked;
+        dragJoint.angularYMotion = ConfigurableJointMotion.Locked;
+        dragJoint.angularZMotion = ConfigurableJointMotion.Locked;
+
+        dragJoint.xMotion = ConfigurableJointMotion.Limited;
+        dragJoint.yMotion = ConfigurableJointMotion.Limited;
+        dragJoint.zMotion = ConfigurableJointMotion.Limited;
+
+        SoftJointLimitSpring spring = new SoftJointLimitSpring();
+        spring.spring = DragSpring;
+        spring.damper = DragDamper;
+
+        dragJoint.linearLimitSpring = spring;
+
+        SoftJointLimit limit = new SoftJointLimit();
+        limit.limit = 0.05f;
+
+        dragJoint.linearLimit = limit;
+    }
+
+    public void StopDragging()
+    {
+        if (dragJoint)
+            Destroy(dragJoint);
+
+        draggedBody = null;
+        isDragging = false;
+
+        if (CurrentState == RagdollState.Dragged)
+            CurrentState = RagdollState.Ragdoll;
+    }
+
 
     public void DropFromCarrier(Transform playerRoot, Collider playerCollider)
     {

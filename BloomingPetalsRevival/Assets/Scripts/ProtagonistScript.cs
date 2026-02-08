@@ -43,6 +43,7 @@ public class ProtagonistScript : MonoBehaviour
     public Transform Hand;
     public Transform Hips;
     public Transform Head;
+    public Transform dragPoint;
 
     public string CurrentOutfit;
 
@@ -130,6 +131,7 @@ public class ProtagonistScript : MonoBehaviour
         animations = GetComponent<Animation>();
 
         Hand = transform.Find("PelvisRoot/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightArmRoll/RightForeArm/RightForeArmRoll/RightHand");
+        dragPoint = transform.Find("PelvisRoot/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightArmRoll/RightForeArm/RightForeArmRoll/RightHand/dragPoint");
         BookBag = transform.Find("PelvisRoot/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/BookBag").gameObject.GetComponent<BookBagScript>();
     }
 

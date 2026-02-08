@@ -29,6 +29,7 @@ public class StudentScript : MonoBehaviour
     public NavMeshAgent StudentAgent;
     public StudentVision StudentVision;
     public PromptScript StudentPrompt;
+    public BloodEmitter StudentBlood;
     public RagdollController StudentRagdoll;
     [Header("Runtime values")]
     public bool isFollowing;
@@ -44,6 +45,8 @@ public class StudentScript : MonoBehaviour
 
     private DestinationSpot currentDestination;
     private DestinationData currentDestinationData;
+
+    public Rigidbody DragRB;
 
     public void Start()
     {
@@ -88,12 +91,20 @@ public class StudentScript : MonoBehaviour
         //corpse carry event
         CorpseCarryEvent = new UnityEvent();
         CorpseCarryEvent.AddListener(CarryCorpse);
+        //CorpseCarryEvent.AddListener(DragCorpse);
         //corpse drop event
         CorpseDropEvent = new UnityEvent();
         CorpseDropEvent.AddListener(DropCorpse);
         //talk event
         StudentTalkEvent = new UnityEvent();
         StudentTalkEvent.AddListener(Talk);
+
+        StudentBlood = gameObject.AddComponent<BloodEmitter>();
+        StudentBlood.bleedPoint = Head;
+        StudentBlood.floorMask = GameGlobals.instance.GroundLayer;
+
+        DragRB = transform.Find("PelvisRoot/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightArmRoll/RightForeArm/RightForeArmRoll/RightHand").gameObject.GetComponent<Rigidbody>();
+
     }
 
     public void Update()
@@ -190,6 +201,8 @@ public class StudentScript : MonoBehaviour
         SetRagdollState(true);
         corpseState = CorpseState.Ragdoll;
         StudentRagdoll.CurrentState = RagdollState.Ragdoll;
+
+        StudentBlood.SpawnPool();
 
         ProtagonistScript.instance.isKilling = false;
             ProtagonistScript.instance.CanMove = true;
@@ -343,6 +356,12 @@ public class StudentScript : MonoBehaviour
     #endregion
 
     #region Ragdoll & Corpse
+
+    public void DragCorpse()
+    {
+        StudentRagdoll.StartDragging(DragRB, ProtagonistScript.instance.dragPoint);
+    }
+
     public void SetRagdollState(bool enable)
     {
         StudentAnimation.enabled = !enable;
@@ -376,6 +395,8 @@ public class StudentScript : MonoBehaviour
         if (corpseState != CorpseState.Ragdoll) return;
         if (StudentRagdoll.CurrentState != RagdollState.Ragdoll) return;
 
+        StudentBlood.forceBleed = false;
+
         corpseState = CorpseState.PickupAnimating;
 
         ProtagonistScript.instance.corpseInHand = this;
@@ -404,6 +425,8 @@ public class StudentScript : MonoBehaviour
             ProtagonistScript.instance.GetComponent<Collider>()
         );
 
+            StudentBlood.SpawnPool();
+
         InventoryScript.instance.enabled = true;
     }
 
@@ -412,6 +435,8 @@ public class StudentScript : MonoBehaviour
     {
         InventoryScript.instance.CloseInventory();
         InventoryScript.instance.enabled = false;
+
+        StudentBlood.forceBleed = false;
 
         StudentPrompt.enabled = false;
         StudentPrompt.Nearby = false;
