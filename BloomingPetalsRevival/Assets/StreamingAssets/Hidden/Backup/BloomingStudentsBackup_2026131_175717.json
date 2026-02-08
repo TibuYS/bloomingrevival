@@ -1,0 +1,212 @@
+{
+    "students": [
+        {
+            "FirstName": "Hideaki",
+            "LastName": "Kumagai",
+            "StudentGender": 1,
+            "Body": 0,
+            "Hairstyle": 0,
+            "Face": 0,
+            "StudentClub": 0,
+            "StudentRole": 3,
+            "StudentPersona": 0,
+            "AcceptedGifts": 0,
+            "StudentIdleAnimation": "idleShort_00",
+            "StudentWalkAnimation": "newWalk_00",
+            "StudentSprintAnimation": "run_00",
+            "SubtitleColor": {
+                "r": 0.7830188870429993,
+                "g": 0.7830188870429993,
+                "b": 0.7830188870429993,
+                "a": 1.0
+            },
+            "StudentInterests": 0,
+            "StudentDestinations": [
+                {
+                    "destinationID": "3e880db3-d095-41ae-8dcc-6cb3f062f85a",
+                    "destinationAction": 0,
+                    "animToPlayOnSpot": "",
+                    "spotTime": 0,
+                    "occupied": false,
+                    "position": {
+                        "x": 0.5,
+                        "y": 0.503000020980835,
+                        "z": -13.5
+                    },
+                    "eulerAngles": {
+                        "x": 0.0,
+                        "y": 180.0,
+                        "z": 0.0
+                    }
+                }
+            ],
+            "StudentAccessories": [],
+            "shouldPatrol": false,
+            "PatrolDestinations": [],
+            "didCompliment": false,
+            "didMeet": false,
+            "isDead": false,
+            "holdingGrudge": false,
+            "canApologise": false,
+            "apologiseFor": "",
+            "StudentID": 1,
+            "trust": 0
+        },
+        {
+            "FirstName": "Asami",
+            "LastName": "Saeki",
+            "StudentGender": 0,
+            "Body": 0,
+            "Hairstyle": 0,
+            "Face": 0,
+            "StudentClub": 0,
+            "StudentRole": 2,
+            "StudentPersona": 0,
+            "AcceptedGifts": 0,
+            "StudentIdleAnimation": "f02_idleShort_00",
+            "StudentWalkAnimation": "f02_newWalk_00",
+            "StudentSprintAnimation": "f02_newSprint_00",
+            "SubtitleColor": {
+                "r": 0.8867924213409424,
+                "g": 0.6085062026977539,
+                "b": 0.3973833918571472,
+                "a": 1.0
+            },
+            "StudentInterests": 0,
+            "StudentDestinations": [
+                {
+                    "destinationID": "9148bd76-f142-4476-ba08-aaa4691d6994",
+                    "destinationAction": 0,
+                    "animToPlayOnSpot": "f02_idleShort_00",
+                    "spotTime": 0,
+                    "occupied": false,
+                    "position": {
+                        "x": -12.25,
+                        "y": 0.503000020980835,
+                        "z": -1.0
+                    },
+                    "eulerAngles": {
+                        "x": 0.0,
+                        "y": 270.0,
+                        "z": 0.0
+                    }
+                }
+            ],
+            "StudentAccessories": [],
+            "shouldPatrol": false,
+            "PatrolDestinations": [],
+            "didCompliment": false,
+            "didMeet": false,
+            "isDead": false,
+            "holdingGrudge": false,
+            "canApologise": false,
+            "apologiseFor": "",
+            "StudentID": 2,
+            "trust": 0
+        },
+        {
+            "FirstName": "Tibu",
+            "LastName": "Ibu",
+            "StudentGender": 0,
+            "Body": 0,
+            "Hairstyle": 3,
+            "Face": 0,
+            "StudentClub": 0,
+            "StudentRole": 0,
+            "StudentPersona": 0,
+            "AcceptedGifts": 0,
+            "StudentIdleAnimation": "f02_idleShort_00",
+            "StudentWalkAnimation": "f02_newWalk_00",
+            "StudentSprintAnimation": "f02_newSprint_00",
+            "SubtitleColor": {
+                "r": 0.7800002098083496,
+                "g": 0.5047169923782349,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "StudentInterests": 0,
+            "StudentDestinations": [
+                {
+                    "destinationID": "77b41d64-a3af-4ffc-931d-f5711b599906",
+                    "destinationAction": 0,
+                    "animToPlayOnSpot": "f02_idleShort_00",
+                    "spotTime": 0,
+                    "occupied": false,
+                    "position": {
+                        "x": 1.0,
+                        "y": 0.503000020980835,
+                        "z": 13.75
+                    },
+                    "eulerAngles": {
+                        "x": 0.0,
+                        "y": -0.00016733963275328279,
+                        "z": 0.0
+                    }
+                }
+            ],
+            "StudentAccessories": [],
+            "shouldPatrol": false,
+            "PatrolDestinations": [],
+            "didCompliment": false,
+            "didMeet": false,
+            "isDead": false,
+            "holdingGrudge": false,
+            "canApologise": false,
+            "apologiseFor": "",
+            "StudentID": 3,
+            "trust": 0
+        },
+        {
+            "FirstName": "Yuusei",
+            "LastName": "Goto",
+            "StudentGender": 1,
+            "Body": 0,
+            "Hairstyle": 1,
+            "Face": 0,
+            "StudentClub": 0,
+            "StudentRole": 0,
+            "StudentPersona": 0,
+            "AcceptedGifts": 0,
+            "StudentIdleAnimation": "idleShort_00",
+            "StudentWalkAnimation": "newWalk_00",
+            "StudentSprintAnimation": "run_00",
+            "SubtitleColor": {
+                "r": 0.5087305903434753,
+                "g": 0.9622641801834106,
+                "b": 0.3948914706707001,
+                "a": 1.0
+            },
+            "StudentInterests": 0,
+            "StudentDestinations": [
+                {
+                    "destinationID": "29c75564-2b32-4cac-93fd-4abab099af7c",
+                    "destinationAction": 0,
+                    "animToPlayOnSpot": "idleShort_00",
+                    "spotTime": 0,
+                    "occupied": false,
+                    "position": {
+                        "x": 13.0,
+                        "y": 0.503000020980835,
+                        "z": 1.0
+                    },
+                    "eulerAngles": {
+                        "x": 0.0,
+                        "y": 90.0,
+                        "z": 0.0
+                    }
+                }
+            ],
+            "StudentAccessories": [],
+            "shouldPatrol": false,
+            "PatrolDestinations": [],
+            "didCompliment": false,
+            "didMeet": false,
+            "isDead": false,
+            "holdingGrudge": false,
+            "canApologise": false,
+            "apologiseFor": "",
+            "StudentID": 4,
+            "trust": 0
+        }
+    ]
+}

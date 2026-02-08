@@ -1,0 +1,60 @@
+{
+    "destinations": [
+        {
+            "id": "3e880db3-d095-41ae-8dcc-6cb3f062f85a",
+            "name": "SenpaiTestMorning",
+            "position": {
+                "x": 0.5,
+                "y": 0.503000020980835,
+                "z": -13.5
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "id": "9148bd76-f142-4476-ba08-aaa4691d6994",
+            "name": "TestAMorning",
+            "position": {
+                "x": -12.25,
+                "y": 0.503000020980835,
+                "z": -1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 180.0,
+                "z": 0.0
+            }
+        },
+        {
+            "id": "77b41d64-a3af-4ffc-931d-f5711b599906",
+            "name": "TestBMorning",
+            "position": {
+                "x": 1.0,
+                "y": 0.503000020980835,
+                "z": 13.75
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "id": "29c75564-2b32-4cac-93fd-4abab099af7c",
+            "name": "TestCMorning",
+            "position": {
+                "x": 13.0,
+                "y": 0.503000020980835,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 180.0,
+                "z": 0.0
+            }
+        }
+    ]
+}
